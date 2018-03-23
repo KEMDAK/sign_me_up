@@ -1,0 +1,29 @@
+{
+  "name": "sign_me_up",
+  "version": "1.0.0",
+  "description": "Back-end server for translating English to sign language",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KEMDAK/sign_me_up.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KEMDAK/sign_me_up/issues"
+  },
+  "homepage": "https://github.com/KEMDAK/sign_me_up#readme",
+  "dependencies": {
+    "body-parser": "*",
+    "dotenv": "*",
+    "express": "*",
+    "express-fileupload": "^0.4.0",
+    "fs-extra": "*",
+    "method-override": "*",
+    "validator": "*",
+    "path": "*"
+  }
+}
