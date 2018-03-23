@@ -5,10 +5,10 @@ const express          = require('express');
 const app              = express();
 const bodyParser       = require('body-parser');
 const methodOverride   = require('method-override');
-const fileUpload = require('express-fileupload');
+const fileUpload       = require('express-fileupload');
 
 /* serving static files */
-// app.use('/', express.static('documentation/music_recommender/' + require('./package.json').version + '/'));
+app.use('/', express.static('./public/'));
 
 /* setting up the file uploader */
 app.use(fileUpload({ safeFileNames: true, preserveExtension: true, abortOnLimit: true }));
