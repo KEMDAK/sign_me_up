@@ -15,7 +15,6 @@ while (i < len(sys.argv)) :
         i += 1
     elif (arg == '--out_file' or arg == '-of') :
         out_file = sys.argv[i + 1]
-        out_file = os.fsencode(out_file)
         i += 1
 
     i += 1
@@ -23,8 +22,9 @@ while (i < len(sys.argv)) :
 imgs = []
 
 for file in img_list.split(','):
-    img = imageio.imread(file)
+    img = imageio.mimread(file)
     for frame in img:
         imgs.append(frame)
 
-imageio.mimsave(out_file, imgs)
+kargs = { 'duration': 0.1 }
+imageio.mimsave(out_file, imgs, **kargs)

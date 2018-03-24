@@ -19,7 +19,9 @@ module.exports = function(app) {
     * {
     * 	status: succeeded/failed,
     * 	message: String showing a descriptive text,
-    * 	translationURL: ,//TODO
+    * 	jobID: String the jobID,
+    * 	gifURL: String URL of the produced gif translation,
+    * 	text: String the transcribed text,
     * 	errors:
     * 	[
     * 	  {
@@ -31,4 +33,6 @@ module.exports = function(app) {
     *   }
     */
     app.post('/api/translate', TranslationController.translate);
+    
+    app.get('/api/isDone/:id', TranslationController.isDone);
 };

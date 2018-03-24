@@ -8,7 +8,7 @@ Created on Fri Mar 23 13:46:35 2018
 
 import boto3
 import time
-import urllib.request
+import requests
 import sys
 
 filePath = sys.argv[1]
@@ -25,9 +25,7 @@ def add_to_s3(filepath):
     region_name="us-east-1",
     aws_access_key_id="AKIAIWTLGL4MBJZMDY3Q",
     aws_secret_access_key="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")
-    s3.upload_file(filepath, bucket_name, filepath)
-
-
+    s3.upload_file(filepath, bucket_name, fileName)
 
 def transcribe(filename):
     transcribe = boto3.client('transcribe')
@@ -47,7 +45,7 @@ def transcribe(filename):
         time.sleep(5)
 
     link = status.get('TranscriptionJob').get('Transcript').get('TranscriptFileUri')
-    contents = urllib.request.urlopen(link).read()
+    contents = requests.get(link).content
     print(contents)
 
 

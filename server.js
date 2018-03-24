@@ -8,7 +8,7 @@ const methodOverride   = require('method-override');
 const fileUpload       = require('express-fileupload');
 
 /* serving static files */
-app.use('/', express.static('./public/'));
+app.use('/', express.static(__dirname + '/public'));
 
 /* setting up the file uploader */
 app.use(fileUpload({ safeFileNames: true, preserveExtension: true, abortOnLimit: true }));
